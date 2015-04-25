@@ -23,7 +23,7 @@ function Node (pkg, logical, physical, cache) {
   if (cache[physical]) return cache[physical]
 
   if (!(this instanceof Node)) {
-    return new Node(pkg, physical, physical, cache)
+    return new Node(pkg, logical, physical, cache)
   }
 
   cache[physical] = this
