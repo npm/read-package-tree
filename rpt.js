@@ -20,7 +20,7 @@ rpt.Link = Link
 
 var ID = 0
 function Node (pkg, logical, physical, cache) {
-  if (cache[path]) return cache[path]
+  if (cache[physical]) return cache[physical]
 
   if (!(this instanceof Node)) {
     return new Node(pkg, physical, physical, cache)
