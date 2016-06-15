@@ -123,6 +123,14 @@ test('missing folder', function (t) {
     t.end()
   })
 })
+test('missing symlinks', function (t) {
+  rpt(path.resolve(fixtures, 'badlink'), function (er, d) {
+    if (er && er.code !== 'ENOENT') throw er
+    var childError = d.children.length === 1 && d.children[0].error
+    t.ok(childError, 'Child node has an error')
+    t.end()
+  })
+})
 
 
 function archyize (d, seen) {
