@@ -138,6 +138,26 @@ test('missing symlinks', function (t) {
   })
 })
 
+test('required properties of Node instances', function(t) {
+  rpt(path.resolve(fixtures, 'root'), function (er, d) {
+    if (er) throw er
+    t.type(d, 'Node')
+    t.type(d.id, 'number')
+    t.type(d.package, 'object')
+    t.equal(d.package.name, 'root')
+    t.equal(d.package.version, '1.2.3')
+    t.type(d.path, 'string')
+    t.type(d.realpath, 'string')
+    t.equal(d.parent, null)
+    t.equal(d.isLink, false)
+    t.type(d.children, 'Array')
+    t.type(d.children[0], 'Node')
+    t.type(d.phantomChildren, 'object')
+    t.equal(d.error, null)
+    t.end()
+  })
+})
+
 
 function archyize (d, seen) {
   seen = seen || {}
