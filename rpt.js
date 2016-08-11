@@ -55,6 +55,7 @@ function Node (pkg, logical, physical, er, cache) {
   this.parent = null
   this.isLink = false
   this.children = []
+  this.phantomChildren = {}
   this.error = er
 }
 
